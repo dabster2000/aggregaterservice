@@ -24,7 +24,7 @@ public class ClientRepository {
     }
 
     public Single<List<Client>> getAll() {
-        String sql = "select * from Client;";
+        String sql = "select * from client;";
 
         return connect().flatMap((SQLConnection connection) -> connection.rxQuery(sql)
                 .map(rs -> rs.getRows().stream().map(Client::new).collect(Collectors.toList()))

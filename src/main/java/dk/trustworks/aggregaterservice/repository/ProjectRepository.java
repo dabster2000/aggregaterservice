@@ -23,7 +23,7 @@ public class ProjectRepository {
     }
 
     public Single<List<Project>> getAll() {
-        String sql = "select * from Project;";
+        String sql = "select * from project;";
 
         return connect().flatMap((SQLConnection connection) -> connection.rxQuery(sql)
                 .map(rs -> rs.getRows().stream().map(Project::new).collect(Collectors.toList()))

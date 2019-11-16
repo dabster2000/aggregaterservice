@@ -23,7 +23,7 @@ public class TaskRepository {
     }
 
     public Single<List<Task>> getAll() {
-        String sql = "select * from Task;";
+        String sql = "select * from task;";
 
         return connect().flatMap((SQLConnection connection) -> connection.rxQuery(sql)
                 .map(rs -> rs.getRows().stream().map(Task::new).collect(Collectors.toList()))

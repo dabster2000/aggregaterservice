@@ -23,7 +23,7 @@ public class UserRepository {
     }
 
     public Single<List<User>> getAll() {
-        String sql = "select * from User;";
+        String sql = "select * from user;";
 
         return connect().flatMap((SQLConnection connection) -> connection.rxQuery(sql)
                 .map(rs -> rs.getRows().stream().map(User::new).collect(Collectors.toList()))
