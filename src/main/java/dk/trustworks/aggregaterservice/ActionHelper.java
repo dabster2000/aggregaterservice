@@ -1,4 +1,4 @@
-package dk.trustworks.aggregater;
+package dk.trustworks.aggregaterservice;
 
 import io.reactivex.functions.Action;
 import io.reactivex.functions.BiConsumer;
@@ -28,7 +28,6 @@ public class ActionHelper {
                     context.fail(err);
                 }
             } else {
-                System.out.println("res = " + res);
                 context.response().setStatusCode(status)
                         .putHeader("content-type", "application/json; charset=utf-8")
                         .end(Json.encodePrettily(res));

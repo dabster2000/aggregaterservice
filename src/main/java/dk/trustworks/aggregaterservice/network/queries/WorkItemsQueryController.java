@@ -1,9 +1,9 @@
-package dk.trustworks.aggregater.network.queries;
+package dk.trustworks.aggregaterservice.network.queries;
 
-import dk.trustworks.aggregater.repository.WorkItemsRepository;
+import dk.trustworks.aggregaterservice.repository.WorkItemsRepository;
 import io.vertx.reactivex.ext.web.RoutingContext;
 
-import static dk.trustworks.aggregater.ActionHelper.ok;
+import static dk.trustworks.aggregaterservice.ActionHelper.ok;
 
 
 public class WorkItemsQueryController {

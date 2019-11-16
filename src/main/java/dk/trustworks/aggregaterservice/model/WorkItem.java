@@ -1,14 +1,20 @@
-package dk.trustworks.aggregater.model;
+package dk.trustworks.aggregaterservice.model;
 
-import dk.trustworks.aggregater.utils.BeanUtils;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import dk.trustworks.aggregaterservice.utils.BeanUtils;
+import dk.trustworks.aggregaterservice.utils.LocalDateDeserializer;
+import dk.trustworks.aggregaterservice.utils.LocalDateSerializer;
 import io.vertx.core.json.JsonObject;
 
 import java.time.LocalDate;
 
-public class Work {
+public class WorkItem {
 
     // Work
     private int id;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate registered;
     private double workduration;
     private String useruuid;
@@ -19,10 +25,10 @@ public class Work {
     private String projectuuid;
     private String clientuuid;
 
-    public Work() {
+    public WorkItem() {
     }
 
-    public Work(int id, LocalDate registered, double workduration, String useruuid, String workas, double rate, String taskuuid, String projectuuid, String clientuuid) {
+    public WorkItem(int id, LocalDate registered, double workduration, String useruuid, String workas, double rate, String taskuuid, String projectuuid, String clientuuid) {
         this.id = id;
         this.registered = registered;
         this.workduration = workduration;
@@ -34,7 +40,7 @@ public class Work {
         this.clientuuid = clientuuid;
     }
 
-    public Work(JsonObject json)  {
+    public WorkItem(JsonObject json)  {
         BeanUtils.populateFields(this, json);
     }
 
